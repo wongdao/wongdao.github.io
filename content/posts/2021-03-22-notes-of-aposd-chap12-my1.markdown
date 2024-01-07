@@ -1,11 +1,17 @@
 ---
+title: APoSD 阅读随想 - 代码维护的两种方法
+slug: 2021-03-22-notes-of-aposd-chap12-my1
 layout: post
-title:  APoSD 阅读随想 - 代码维护的两种方法
-date:   2021-03-22 09:50:00 +0800
-categories: design
+date: 2021-03-22T09:50:00+08:00
+categories: architecture
 ---
 
 > without documentation, future developers will have to rederive or guess at the developers original knowledge, this will take additional time, and there is a risk of buts if the new developer misunderstands the original designer's intentions.
+
+
+<!--more-->
+
+
 
 维护代码（new feature and bugfix）的方法有两种：1. 完全重写; 2. 打补丁
 

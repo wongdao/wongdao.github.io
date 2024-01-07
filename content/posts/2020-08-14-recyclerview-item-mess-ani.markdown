@@ -1,11 +1,14 @@
 ---
 layout: post
 title:  "RecyclerView Item 钉子户问题解决记"
-date:   2020-08-14 14:13:33 +0800
+slug: 2020-08-14-recyclerview-item-mess-ani
+date: 2020-08-14T14:13:33+08:00
 categories: android
 ---
 
 之前是个超低概率出现的问题，很让人头疼，但所幸发现了让问题必现的方法，让问题得以顺利解决。大部分问题都是这样：不怕难，就怕难复现。
+
+<!--more-->
 
 注：
 1. `RecyclerView` 下面图方便缩写为 **RV**

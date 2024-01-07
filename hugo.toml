@@ -1,0 +1,25 @@
+baseURL = 'https://example.org/'
+languageCode = 'zh-cn'
+
+title = 'Agile with AI&Android'
+theme = 'smol'
+
+
+# Header
+[menu]
+[[menu.main]]
+identifier = "posts"
+name = "Posts"
+url = "/posts/"
+weight = 1 
+
+# Footer
+[[menu.footer]]
+name = "Github"
+url = "https://github.com/example"
+weight = 1 
+
+[[menu.footer]]
+name = "Theme"
+url = "https://themes.gohugo.io/themes/smol/"
+weight = 2 

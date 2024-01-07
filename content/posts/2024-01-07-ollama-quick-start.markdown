@@ -1,8 +1,13 @@
 ---
-layout: post
-title:  Ollama quick guide on Mac
-date:   2024-01-07 1:00:00 +0800
-categories: LLM
+title: Ollama quick guide on Mac
+date: 2024-01-06T01:00:00+08:00
+slug:  2024-01-06-Ollama-quick-guide-on-Mac
+draft: false
+categories:
+  - AI
+tags:
+  - LLM
+  - Ollama
 ---
 
 # 两行命令运行本地大模型
@@ -13,6 +18,9 @@ $ ollama run llama2
 ```
 
 上面使用了 llama2，更多模型见： https://ollama.ai/library
+
+<!--more-->
+
 
 # Customize a model
 

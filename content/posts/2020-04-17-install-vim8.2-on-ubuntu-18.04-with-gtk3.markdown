@@ -1,9 +1,12 @@
 ---
-layout: post
-title:  "Install Vim8.2 on Ubuntu 18.04 with Gtk3"
-date:   2020-08-14 14:13:33 +0800
-categories: android
+title: Install Vim8.2 on Ubuntu 18.04 with Gtk3
+slug: 2020-04-17-install-vim8.2-on-ubuntu-18.04-with-gtk3
+date:  2020-04-17T14:00:00+08:00
+draft: false
+categories:
+  - Vim
 ---
+
 
 # 卸载原来的vim
 
@@ -13,11 +16,15 @@ sudo apt-get remove --purge vim vim-runtime gvim vim-tiny vim-common
 
 # 安装build vim所需工具和库
 
+<!--more-->
+
 ```sh
 sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev \
 libgtk2.0-dev libgtk-3-dev libatk1.0-dev libbonoboui2-dev \
 libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
 python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev git
+
+
 ```
 
 # 下载源代码

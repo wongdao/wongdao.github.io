@@ -1,11 +1,18 @@
 ---
-layout: post
-title:  Data Binding vs. View Binding
-date:   2020-03-26 14:00:00 +0800
-categories: android
+title: Data Binding vs. View Binding
+date: 2020-03-26T14:00:00+08:00
+slug: 2020-03-26-data-binding-vs-view-binding
+type: posts
+draft: false
+categories:
+  - android
+tags:
+  - MVVM
 ---
 
 这两个不是互斥关系，可以同时使用。另外从功能上可以把 Data Binding 看作是 View Binding 的超集。
+
+<!--more-->
 
 # 原理
 
@@ -15,7 +22,7 @@ categories: android
 # 用途
 
  - Data Binding: MVVM
- - View Binding: 替代 findViewById
+ - view binding: 替代 findviewbyid
 
 # 对 layout 的要求
 
