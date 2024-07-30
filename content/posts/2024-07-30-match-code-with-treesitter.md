@@ -1,24 +1,17 @@
----
-title: 用tree-sitter实现对代码的结构化查询
-date: 2024-07-30T11:00:00+08:00
-slug: 2024-07-30-match-code-with-treesitter
-draft: false
-categories:
-  - Tech
-tags:
-  - tree-sitter
----
 
-# Tree-sitter 简介
+# Tree-sitter 是什么
 
 第一次听说treesitter是在2020年左右，vim/emacs社区里讨论用它做语法高亮的帖子越来越多。真正引起我兴趣是2022年neovim的大动作：直接集成treesitter，这让我对这个小玩意产生了兴趣，并简单学习了一下。学完后发现它根本就不小，且功能非常强大。
 
+简单来说 Tree-sitter 是一个语法分析/生成器工具，它和其它分析工具如yacc/lex/antlr最大的区别是：增量分析、快、稳。这些特性才令它被各种编辑器/IDE物色作为语法高亮以及其它高级功能的实现。
 
-简单来说 Tree-sitter 是一个语法分析/生成器工具，也可以用于语法分析。它和其它分析工具如yacc/lex/antlr最大的区别是：增量分析、快、稳。这些特性才令它被各种编辑器/IDE物色作为语法高亮以及其它高级功能的实现。
+# Tree-sitter 适合干什么
 
-# 模式匹配
+实现语法高亮、lint、folding、自动格式化等轻量级语法/语义相关的操作。
 
-由于 treesitter 的模式匹配语法就是 S-expression，因此使用起来比较简单，只需3步：
+# 对源码进行模式匹配
+
+当然可以在 Tree-sitter 生成整个 AST 后遍历所有节点来实现模式匹配，然而还有一个更方便的方法：使用 Tree-sitter query。该 query 本质就是 S-expression，因此使用起来比较简单，只需3步：
 
 1. 通过 Treesitter [playground](https://tree-sitter.github.io/tree-sitter/playground) 获取源码的 AST 表示；
 2. 根据 AST 编写模式匹配 s-exp
@@ -236,4 +229,3 @@ local var "target2" invoke method "clone" in the line: 10
 chk-method-be-called$ cargo run String test.java
 local var "notTarget" invoke method "toString" in the line: 9
 ```
-
