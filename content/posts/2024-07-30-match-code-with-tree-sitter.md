@@ -1,7 +1,7 @@
 ---
 title: 用tree-sitter实现对代码的结构化查询
 date: 2024-07-30T11:00:00+08:00
-slug: 2024-07-30-match-code-with-tree-sitter
+slug: 2024-07-30-match-code-with-treesitter
 draft: false
 categories:
   - Tech
@@ -21,10 +21,10 @@ tags:
 
 # 对源码进行模式匹配
 
-当然可以在 Tree-sitter 生成整个 AST 后遍历所有节点来实现模式匹配，然而还有一个更方便的方法：使用 Tree-sitter query。该 query 本质就是 S-expression，因此使用起来比较简单，只需3步：
+当然可以在 Tree-sitter 生成整个 CST 后遍历所有节点来实现模式匹配，然而还有一个更方便的方法：使用 Tree-sitter query。该 query 本质就是 S-expression，因此使用起来比较简单，只需3步：
 
-1. 通过 Treesitter [playground](https://tree-sitter.github.io/tree-sitter/playground) 获取源码的 AST 表示；
-2. 根据 AST 编写模式匹配 s-exp
+1. 通过 Treesitter [playground](https://tree-sitter.github.io/tree-sitter/playground) 获取源码的 CST 表示；
+2. 根据 CST 编写模式匹配 s-exp
 3. 自行编写工具或直接用 tree-sitter 执行查询
 
 下面将使用一个例子来具体说明。
@@ -61,8 +61,8 @@ $ chk-method-be-called String test.java
 local var "notTarget" invoke method "toString", line: 9
 ```
 
-## 第一步：获取 AST
-进入 [playground](https://tree-sitter.github.io/tree-sitter/playground) ，将 test.java 粘贴到 `Code`，然后得到如下 AST：
+## 第一步：获取 CST
+进入 [playground](https://tree-sitter.github.io/tree-sitter/playground) ，将 test.java 粘贴到 `Code`，然后得到如下 CST：
 
 ```
 program [0, 0] - [13, 0]
@@ -107,7 +107,7 @@ program [0, 0] - [13, 0]
               arguments: argument_list [9, 17] - [9, 19]
 ```
 
-## 第二步：将 AST 修改成为 s-exp
+## 第二步：将 CST 修改成为 s-exp
 
 编写 query s-exp，这里用到了两个特性：capture 和 predicates。更多参考官网的章节：[pattern-matching-with-queries](pattern-matching-with-queries) 。
 - capture: `@the_type`, `@name`, `@calling`, `@method`
@@ -169,7 +169,7 @@ fn main() {
     let mut parser = Parser::new();
     parser.set_language(&java_lang).unwrap();
 
-    // create ast and query
+    // create CST and query
     let parse_tree = parser.parse(&contents, None).unwrap();
     let query = gen_query(&java_lang, &target_class);
     let mut query_cursor = QueryCursor::new();
@@ -239,3 +239,4 @@ local var "target2" invoke method "clone" in the line: 10
 chk-method-be-called$ cargo run String test.java
 local var "notTarget" invoke method "toString" in the line: 9
 ```
+
