@@ -1,7 +1,7 @@
 ---
 title: 用tree-sitter实现对代码的结构化查询
 date: 2024-07-30T11:00:00+08:00
-slug: 2024-07-30-match-code-with-trees-itter
+slug: 2024-07-30-match-code-with-trees-sitter
 draft: false
 categories:
   - Tech
